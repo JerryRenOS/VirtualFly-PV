@@ -1,0 +1,7 @@
+{
+  "name": "PuraVida Virtual Fly",
+  "description": "A high-fidelity virtual flight experience featuring interactive 3D planet controls, pilot navigation, and AI-powered global tours.",
+  "requestFramePermissions": [
+    "geolocation"
+  ]
+}
