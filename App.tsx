@@ -5,6 +5,7 @@ import { PilotControls } from './components/PilotControls';
 import { TourPanel } from './components/TourPanel';
 import { PilotState, PlanetState, ViewMode, TourLocation } from './types';
 import { Shield, Radio, Wind, Plane, Speaker, Info } from 'lucide-react';
+import { SKY_WHISPERS } from './constants';
 
 const App: React.FC = () => {
   const [pilot, setPilot] = useState<PilotState>({
@@ -20,6 +21,7 @@ const App: React.FC = () => {
   const [viewMode, setViewMode] = useState<ViewMode>(ViewMode.PILOT);
   const [selectedLocation, setSelectedLocation] = useState<TourLocation | null>(null);
   const [isBooting, setIsBooting] = useState(true);
+  const [skyWhisperIdx, setSkyWhisperIdx] = useState<number | null>(null);
 
   useEffect(() => {
     // Initial cinematic boot
@@ -55,7 +57,23 @@ const App: React.FC = () => {
               <Plane size={24} />
             </div>
             <div>
-              <h1 className="text-white font-orbitron text-xl tracking-tighter">VIRTUAL FLY <span className="text-blue-500">ONE</span></h1>
+              <h1
+                className="text-white font-orbitron text-xl tracking-tighter cursor-pointer pointer-events-auto"
+                title="Double-click for sky whispers"
+                onDoubleClick={() =>
+                  setSkyWhisperIdx((i) => {
+                    const next = i === null ? 0 : (i + 1) % SKY_WHISPERS.length;
+                    return next;
+                  })
+                }
+              >
+                VIRTUAL FLY <span className="text-blue-500">ONE</span>
+              </h1>
+              {skyWhisperIdx !== null && (
+                <p className="text-[10px] text-cyan-300/90 font-mono mt-1 max-w-[280px] leading-snug animate-pulse">
+                  {SKY_WHISPERS[skyWhisperIdx]}
+                </p>
+              )}
               <div className="flex items-center gap-2 text-[10px] text-white/40 font-bold uppercase tracking-widest">
                 <Radio size={10} className="text-green-400" />
                 Signal: Optimal

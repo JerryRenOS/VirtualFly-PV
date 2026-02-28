@@ -39,6 +39,15 @@ export const LOCATIONS: TourLocation[] = [
   }
 ];
 
+/** Double-click the main HUD title in App to cycle these (easter egg). */
+export const SKY_WHISPERS: string[] = [
+  'YOLO clearance granted — fly weird, ship weirder.',
+  'Tower says: your next commit is poetry if you mean it.',
+  'Ionized optimism detected. Proceed visually.',
+  'The globe remembers every spin you almost didn’t ship.',
+  'MCP server says hi from the stratosphere.',
+];
+
 export const TEXTURE_URLS = {
   day: 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_atmos_2048.jpg',
   night: 'https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/planets/earth_lights_2048.png',
