@@ -18,6 +18,7 @@ export const ALLOWED_SOURCE_FILES = [
   'components/PilotControls.tsx',
   'components/TourPanel.tsx',
   'mcp/server.ts',
+  'mcp/yolo-tools.ts',
 ] as const;
 
 export type AllowedSourceFile = (typeof ALLOWED_SOURCE_FILES)[number];

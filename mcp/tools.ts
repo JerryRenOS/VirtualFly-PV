@@ -8,6 +8,7 @@ import { LOCATIONS, TEXTURE_URLS } from '../constants.js';
 import { ALLOWED_SOURCE_FILES, readAllowedSourceFile } from './allowed-files.js';
 import { haversineKm } from './geo.js';
 import { REPO_ROOT } from './repo-root.js';
+import { registerYoloTools } from './yolo-tools.js';
 
 const LOCATION_IDS = LOCATIONS.map((l) => l.id) as [string, ...string[]];
 const LocationIdSchema = z.enum(LOCATION_IDS);
@@ -222,4 +223,6 @@ export function registerTools(server: McpServer): void {
       return { content: [{ type: 'text', text: JSON.stringify(body, null, 2) }] };
     },
   );
+
+  registerYoloTools(server);
 }
